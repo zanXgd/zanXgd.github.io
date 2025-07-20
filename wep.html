@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>zan❤️gd</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+        }
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .center-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            border-radius: 24px;
+            padding: 32px 40px;
+            box-shadow: 0 4px 32px #000a;
+            color: #fff;
+            text-align: center;
+            min-width: 340px;
+            z-index: 2;
+            opacity: 1;
+            transition: opacity 0.3s;
+        }
+        .center-content.hide {
+            opacity: 1 !important;
+            pointer-events: auto !important;
+        }
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 16px;
+            border: 2px solid #fff;
+        }
+        .username {
+            font-size: 2.2em;
+            font-family: 'Courier New', Courier, monospace;
+            letter-spacing: 2px;
+            font-weight: bold;
+            text-shadow: 0 0 8px #fff, 0 0 2px #fff;
+            margin-bottom: 8px;
+        }
+        .diamond {
+            font-size: 1.2em;
+            margin-left: 8px;
+        }
+        .status-box {
+            background: #222;
+            border-radius: 16px;
+            padding: 16px;
+            margin: 18px 0;
+            font-size: 1.1em;
+        }
+        .status {
+            font-weight: bold;
+            color: #fff;
+        }
+        .last-seen {
+            font-style: italic;
+            color: #aaa;
+            font-size: 0.95em;
+        }
+        .icons {
+            margin: 18px 0 10px 0;
+        }
+        .icons img {
+            width: 36px;
+            margin: 0 10px;
+            filter: drop-shadow(0 0 8px #fff);
+            vertical-align: middle;
+            transition: transform 0.2s;
+        }
+        .icons img:hover {
+            transform: scale(1.15);
+        }
+        .info {
+            margin-top: 10px;
+            font-size: 1.1em;
+            color: #fff;
+        }
+        .info .icon {
+            margin-right: 8px;
+        }
+        .info .location {
+            margin-left: 16px;
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+        .fade-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 9999;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 1.5s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000; 
+        }
+        .popup-text {
+            background: none;
+            color: #fff;
+            font-size: 2.2em;
+            font-family: 'Press Start 2P', cursive;
+            text-shadow: 2px 2px 8px #000, 0 0 2px #fff;
+            border: none;
+            padding: 0;
+            margin: 0;
+            box-shadow: none;
+            cursor: pointer;
+            font-weight: bold;
+            letter-spacing: 2px;
+            border-radius: 0;
+        }
+        .audio-ui {
+            position: fixed;
+            left: 32px;
+            bottom: 32px;
+            z-index: 10;
+            background: rgba(0,0,0,0.7);
+            border-radius: 16px;
+            box-shadow: 0 4px 16px #000a;
+            padding: 18px 28px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            font-family: 'Press Start 2P', cursive;
+        }
+        .audio-ui label {
+            font-size: 1.1em;
+            margin-right: 16px;
+            text-shadow: 0 0 4px #fff, 0 0 2px #000;
+        }
+        .audio-ui audio {
+            width: 180px;
+            height: 32px;
+            background: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="fade-overlay" id="fadeOverlay">
+        <span class="popup-text" id="popupText">click anywhere to continue</span>
+    </div>
+    <div class="audio-ui">
+        <label for="bgAudio">Nuts - Lil Peep</label>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="1" style="width:120px; margin-right:12px;">
+        <audio id="bgAudio" src="C:/Users/jirat/Downloads/Lil Peep - nuts feat rainy bear Official Audio.mp3" loop></audio>
+    </div>
+    <video class="video-bg" id="bgvid" src="C:/Users/jirat/Downloads/snaptik_7499648823845768503.mov" autoplay loop muted></video>
+    <div class="center-content" id="centerContent">
+        <img src="C:/Users/jirat/Downloads/469635418_1961154074386127_1402542102594792503_n.jpg" alt="Profile" class="profile-img" id="profileImg">
+        <div class="username" id="username">zanXgd.<span class="diamond">&#128142;</span></div>
+        <div class="status-box">
+            <span class="status" id="status">.zanXgd &#128081;</span><br>
+            <span class="last-seen" id="lastSeen"> always <b> online </b></span>
+        </div>
+        <div class="icons">
+            <a href="https://www.tiktok.com/@zanxgd?_t=ZS-8yCDHX6ccB0&_r=1" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/3046/3046121.png" alt="TikTok" title="TikTok" id="tiktokIcon">
+            </a>
+            <a href="https://open.spotify.com/user/31rdipxo2rzegutqybtxglh7sezq?si=a05504f35f8f48e9" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/174/174872.png" alt="Spotify" title="Spotify" id="spotifyIcon">
+            </a>
+            <a href="https://www.instagram.com/sinwza007/" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" title="Instagram" id="instagramIcon">
+            </a>
+            <a href="https://www.youtube.com/@zanX1gd" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" title="YouTube" id="youtubeIcon">
+            </a>
+        </div>
+        <div class="info">
+            <span class="icon" id="viewCount">&#128065; 145</span>
+            <span class="location">&#128205; ts tech collage </span>
+        </div>
+    </div>
+    <script>
+         function fadeOutOverlay() {
+            document.getElementById('fadeOverlay').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('fadeOverlay').style.pointerEvents = 'none';
+                 forcePlayAudio();
+            }, 1500);
+        }
+        document.getElementById('fadeOverlay').addEventListener('click', fadeOutOverlay);
+        document.getElementById('popupText').addEventListener('click', fadeOutOverlay);
+        const vid = document.getElementById('bgvid');
+        vid.addEventListener('ended', function() {
+            vid.currentTime = 0;
+            vid.play();
+        });
+        document.getElementById('centerContent').classList.remove('hide');
+        document.getElementById('centerContent').style.opacity = '1';
+        document.getElementById('centerContent').style.pointerEvents = 'auto';
+        let views = localStorage.getItem('profileViews');
+        if (!views) {
+            views = 1;
+        } else {
+            views = parseInt(views) + 1;
+        }
+        localStorage.setItem('profileViews', views);
+        document.getElementById('viewCount').innerHTML = '&#128065; ' + views;
+        const audio = document.getElementById('bgAudio');
+        const volumeSlider = document.getElementById('volumeSlider');
+        function forcePlayAudio() {
+            audio.volume = volumeSlider.value;
+            audio.muted = false;
+            audio.play().catch(function() {
+                document.body.addEventListener('click', tryPlay, { once: true });
+            });
+        }
+        function tryPlay() {
+            audio.play();
+        }
+        audio.removeAttribute('controls');
+        audio.loop = true;
+        audio.volume = volumeSlider.value;
+       volumeSlider.addEventListener('input', function() {
+            audio.volume = this.value;
+        });
+        if (document.getElementById('fadeOverlay').style.opacity === '0') {
+            forcePlayAudio();
+        }
+     </script>
+</body>
+</html>
